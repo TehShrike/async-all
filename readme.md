@@ -45,6 +45,21 @@ all({
 
 ```
 
+# Install
+
+```sh
+npm install async-all
+```
+
+# Run the tests
+
+```sh
+git clone https://github.com/TehShrike/async-all.git
+cd async-all
+npm test
+
+```
+
 
 # License
 
