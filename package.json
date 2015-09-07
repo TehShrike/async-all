@@ -1,0 +1,25 @@
+{
+  "name": "async-all",
+  "version": "1.0.0",
+  "description": "Like async-each, but on an object instead of an array",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TehShrike/async-all.git"
+  },
+  "keywords": [
+    "async",
+    "each",
+    "all",
+    "q"
+  ],
+  "author": "TehShrike",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/TehShrike/async-all/issues"
+  },
+  "homepage": "https://github.com/TehShrike/async-all#readme"
+}
