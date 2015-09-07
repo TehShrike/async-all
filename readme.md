@@ -40,7 +40,7 @@ all({
 	tmp: fs.stat.bind(fs, '/tmp'),
 	broken: fs.stat.bind(fs, '/tmp/doesntexist/asfarasIknow')
 }, function(err, results) {
-	startsWith(err.message, 'ENOENT: no such file or directory') // => true
+	startsWith(err.message, 'ENOENT') // => true
 })
 
 ```
