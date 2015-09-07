@@ -14,7 +14,7 @@ function startsWith(haystack, needle) {
 
 ```js
 
-var all = require('.')
+var all = require('./')
 
 function someAsyncThing(cb) {
 	setTimeout(function() {
