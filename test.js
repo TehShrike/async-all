@@ -4,10 +4,13 @@ var all = require('./')
 test('throws on non-object input', function(t) {
 	t.throws(function() {
 		all([])
-	}, 'throws on array')
+	}, /async-all requires/, 'throws on array')
 	t.throws(function() {
 		all()
-	}, 'throws on undefined')
+	}, /async-all requires/, 'throws on undefined')
+	t.throws(function() {
+		all(null)
+	}, /async-all requires/, 'throws on null')
 	t.end()
 })
 

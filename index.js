@@ -5,7 +5,7 @@ module.exports = function all(o, cb) {
 	var results = {}
 	var errorResponse = null
 
-	if (typeof o !== 'object' || Array.isArray(o)) {
+	if (!o || typeof o !== 'object' || Array.isArray(o)) {
 		throw new Error('async-all requires you to pass in an object!')
 	}
 
