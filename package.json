@@ -1,6 +1,6 @@
 {
   "name": "async-all",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Like async-each, or q.all(), but with an object instead of an array",
   "main": "index.js",
   "scripts": {
