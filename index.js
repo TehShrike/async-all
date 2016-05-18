@@ -34,27 +34,34 @@ module.exports = function all(o, cb) {
 		}
 	}
 
-	Object.keys(o).forEach(function(key) {
+	var functions = Object.keys(o).filter(function(key) {
+		return typeof o[key] === 'function'
+	})
+
+	running = functions.length
+
+	Object.keys(o).filter(function(key) {
+		return typeof o[key] !== 'function'
+	}).forEach(function(key) {
+		results[key] = o[key]
+	})
+
+	functions.forEach(function(key) {
 		var receivedResponse = false
-		if (typeof o[key] === 'function') {
-			running++
-			o[key](function(err, value) {
-				if (!receivedResponse) {
-					receivedResponse = true
-					running--
-					if (!errorResponse) {
-						if (err) {
-							errorResponse = err
-						} else {
-							results[key] = value
-						}
+		o[key](function(err, value) {
+			if (!receivedResponse) {
+				receivedResponse = true
+				running--
+				if (!errorResponse) {
+					if (err) {
+						errorResponse = err
+					} else {
+						results[key] = value
 					}
-					respondIfItMakesSense()
 				}
-			})
-		} else {
-			results[key] = o[key]
-		}
+				respondIfItMakesSense()
+			}
+		})
 	})
 
 	respondIfItMakesSense()

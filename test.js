@@ -49,6 +49,27 @@ test('no zalgo', function(t) {
 	zalgo = false
 })
 
+test('another zalgo case', function(t) {
+	var zalgo = true
+	all({
+		one: function(cb) {
+			cb(null, 'value')
+		},
+		two: function(cb) {
+			setTimeout(function() {
+				cb(null, 'second value')
+			}, 500)
+		}
+	}, function(err, result) {
+		t.notOk(err, 'no error')
+		t.equal(result.one, 'value')
+		t.equal(result.two, 'second value')
+		t.notOk(zalgo)
+		t.end()
+	})
+	zalgo = false
+})
+
 test('collecting with an empty object', function(t) {
 	var zalgo = true
 	all({}, function(err, result) {
